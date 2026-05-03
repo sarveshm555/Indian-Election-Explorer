@@ -49,11 +49,11 @@ const Flashcards = () => {
         Click on a card to reveal its definition.
       </p>
 
-      <div className="flashcards-grid" role="list">
+      <div className="flashcard-grid" role="list">
         {flashcards.map((card) => (
           <div 
             key={card.id} 
-            className={`flashcard-container flashcard ${flippedCards[card.id] ? 'flipped' : ''}`}
+            className={`flashcard ${flippedCards[card.id] ? 'flipped' : ''}`}
             onClick={() => toggleFlip(card.id)}
             onKeyDown={(e) => handleKeyDown(e, card.id)}
             role="button"
