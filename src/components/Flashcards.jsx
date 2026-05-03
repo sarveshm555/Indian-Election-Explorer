@@ -61,7 +61,7 @@ const Flashcards = () => {
             aria-label={`${card.term} flashcard. ${flippedCards[card.id] ? 'Definition shown.' : 'Click to flip and see definition.'}`}
             aria-pressed={flippedCards[card.id]}
           >
-            <div className="flashcard-inner" aria-hidden="true">
+            <div className="flashcard-inner">
               <div className="flashcard-front">
                 <h3>{card.term}</h3>
               </div>
@@ -69,10 +69,6 @@ const Flashcards = () => {
                 <p>{card.definition}</p>
               </div>
             </div>
-            {/* Screen reader only text for the content when flipped */}
-            <span className="sr-only">
-              {flippedCards[card.id] ? `Definition: ${card.definition}` : `Term: ${card.term}`}
-            </span>
           </div>
         ))}
       </div>
