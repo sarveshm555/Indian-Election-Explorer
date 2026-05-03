@@ -4,7 +4,7 @@
 
 🌐 **Live App:** [https://indian-election-assistant-843157378295.asia-south1.run.app](https://indian-election-assistant-843157378295.asia-south1.run.app)
 
-Built for **PromptWars Week 2** using Google Antigravity + Gemini 2.5 Flash AI
+Built for **PromptWars** using Google Antigravity + Gemini 2.5 Flash AI
 Deployed on **Google Cloud Run** (asia-south1 - Mumbai)
 
 ---
