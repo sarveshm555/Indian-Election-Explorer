@@ -11,13 +11,13 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
  * - Direct integration with Google Generative AI (Gemini 2.5 Flash).
  * - Safety settings and granular error handling.
  * 
- * @hook
+ * @param {string} apiKey - The Gemini API Key.
  * @returns {Object} chatbotState - The state and handlers for the chatbot.
  * @returns {Array} chatbotState.messages - The conversation history.
  * @returns {boolean} chatbotState.isLoading - Whether the AI is currently generating a response.
  * @returns {Function} chatbotState.sendMessage - Function to send a user message to the AI.
  */
-export const useChatbot = () => {
+export const useChatbot = (apiKey) => {
   const [messages, setMessages] = useState([
     { role: 'model', content: 'Namaste! I am your Election Assistant. Ask me anything about the Indian election process.' }
   ]);
@@ -53,7 +53,6 @@ export const useChatbot = () => {
     setIsLoading(true);
 
     try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       if (!apiKey || apiKey === 'your_api_key_here') {
         throw new Error('API_KEY_MISSING');
       }

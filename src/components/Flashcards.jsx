@@ -53,7 +53,7 @@ const Flashcards = () => {
         {flashcards.map((card) => (
           <div 
             key={card.id} 
-            className={`flashcard ${flippedCards[card.id] ? 'flipped' : ''}`}
+            className={`flashcard-container flashcard ${flippedCards[card.id] ? 'flipped' : ''}`}
             onClick={() => toggleFlip(card.id)}
             onKeyDown={(e) => handleKeyDown(e, card.id)}
             role="button"

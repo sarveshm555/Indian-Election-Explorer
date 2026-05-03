@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useChatbot } from '../hooks/useChatbot';
 
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
 /**
  * Chatbot Component
  * 
@@ -19,7 +21,7 @@ import { useChatbot } from '../hooks/useChatbot';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const { messages, isLoading, sendMessage } = useChatbot();
+  const { messages, isLoading, sendMessage } = useChatbot(API_KEY);
   const messagesEndRef = useRef(null);
 
   /**
