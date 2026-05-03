@@ -1,16 +1,53 @@
-# React + Vite
+# 🗳️ Indian Election Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> An AI-powered interactive web app to learn about the world's largest democratic exercise.
 
-Currently, two official plugins are available:
+🌐 **Live App:** [https://indian-election-assistant-843157378295.asia-south1.run.app](https://indian-election-assistant-843157378295.asia-south1.run.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Built for **PromptWars Week 2** using Google Antigravity + Gemini 2.5 Flash AI
+Deployed on **Google Cloud Run** (asia-south1 - Mumbai)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🗓️ **Election Process Timeline** — Step-by-step interactive journey of Indian elections
+- 🃏 **Key Terms Flashcards** — Flip cards covering ECI, EVM, VVPAT, NOTA and more
+- 📊 **Process Data Charts** — Visual election statistics with interactive tooltips
+- 🧠 **Knowledge Quiz** — Gamified quiz with 🔥 streaks and 🎉 confetti celebrations
+- 🤖 **Election AI Assistant** — Floating chatbot powered by Gemini 2.5 Flash
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React + Vite | Frontend framework |
+| Gemini 2.5 Flash API | AI chatbot |
+| canvas-confetti | Quiz celebrations |
+| Nginx + Docker | Production serving |
+| Google Cloud Run | Deployment (asia-south1) |
+| Google Antigravity | AI-native development |
+
+---
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+git clone https://github.com/sarveshm555/Indian-Election-Explorer.git
+cd Indian-Election-Explorer
+npm install
+echo "VITE_GEMINI_API_KEY=your_api_key_here" > .env.local
+npm run dev
+```
+
+---
+
+## 🏆 Built For
+PromptWars Week 2 — Build with AI 2026
+Developer: @sarveshm555
+
+#BuildwithVibe #BuildwithAI #PromptWars #GoogleAntigravity #IndianElections
