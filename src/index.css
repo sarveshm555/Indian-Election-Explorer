@@ -41,6 +41,37 @@ body {
   overflow-x: hidden;
 }
 
+/* Accessibility: Skip to Content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--navy);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: var(--navy);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   color: var(--navy);

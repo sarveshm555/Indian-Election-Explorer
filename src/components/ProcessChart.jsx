@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
+import PropTypes from 'prop-types';
 import {
   BarChart,
   Bar,
@@ -43,18 +44,27 @@ const data = [
   },
 ];
 
+/**
+ * Custom Tooltip for the Recharts BarChart.
+ * Provides detailed information about each election phase.
+ */
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     const dataPoint = payload[0].payload;
     return (
-      <div className="custom-tooltip" style={{
-        background: 'var(--glass-bg)',
-        backdropFilter: 'blur(12px)',
-        border: '1px solid var(--glass-border)',
-        padding: '1rem',
-        borderRadius: '12px',
-        boxShadow: 'var(--glass-shadow)'
-      }}>
+      <div 
+        className="custom-tooltip" 
+        style={{
+          background: 'var(--glass-bg)',
+          backdropFilter: 'blur(12px)',
+          border: '1px solid var(--glass-border)',
+          padding: '1rem',
+          borderRadius: '12px',
+          boxShadow: 'var(--glass-shadow)'
+        }}
+        role="tooltip"
+        aria-live="polite"
+      >
         <h4 style={{ color: 'var(--navy)', marginBottom: '0.5rem' }}>{label}</h4>
         <p style={{ color: 'var(--text-dark)', fontWeight: 'bold' }}>
           Typical Duration: {dataPoint.duration} Days
@@ -68,11 +78,28 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-function ProcessChart() {
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+  label: PropTypes.string,
+};
+
+/**
+ * ProcessChart Component
+ * Visualizes the duration of different election phases using a bar chart.
+ * 
+ * @returns {React.ReactElement} The ProcessChart component.
+ */
+const ProcessChart = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <div className="glass-panel" style={{ padding: '2rem', height: '500px' }}>
+    <div 
+      className="glass-panel" 
+      style={{ padding: '2rem', height: '500px' }}
+      role="region"
+      aria-label="Election Phases and Duration Chart"
+    >
       <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Election Phases & Typical Duration</h2>
       <p style={{ textAlign: 'center', color: 'var(--text-light)', marginBottom: '2rem' }}>
         Hover over the bars to see details about each phase of the electoral process. 
@@ -96,21 +123,33 @@ function ProcessChart() {
             }
           }}
           onMouseLeave={() => setActiveIndex(null)}
+          aria-label="Bar chart showing typical duration of election phases in days."
         >
           <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-          <XAxis dataKey="name" tick={{ fill: 'var(--navy)', fontWeight: 600 }} />
+          <XAxis 
+            dataKey="name" 
+            tick={{ fill: 'var(--navy)', fontWeight: 600 }}
+            aria-label="Election Phase Names"
+          />
           <YAxis 
             label={{ value: 'Typical Days', angle: -90, position: 'insideLeft', fill: 'var(--text-light)' }} 
             tick={{ fill: 'var(--text-light)' }}
+            aria-label="Duration in Days"
           />
           <Tooltip content={<CustomTooltip />} cursor={{fill: 'rgba(0,0,0,0.05)'}} />
-          <Bar dataKey="duration" radius={[8, 8, 0, 0]} animationDuration={1500}>
+          <Bar 
+            dataKey="duration" 
+            radius={[8, 8, 0, 0]} 
+            animationDuration={1500}
+            role="presentation"
+          >
             {data.map((entry, index) => (
               <Cell 
                 key={`cell-${index}`} 
                 fill={entry.color} 
                 opacity={activeIndex === index ? 1 : (activeIndex === null ? 0.8 : 0.5)}
                 style={{ transition: 'all 0.3s ease', cursor: 'pointer' }}
+                aria-label={`${entry.name}: ${entry.duration} days. ${entry.description}`}
               />
             ))}
           </Bar>
@@ -118,6 +157,8 @@ function ProcessChart() {
       </ResponsiveContainer>
     </div>
   );
-}
+};
 
-export default ProcessChart;
+ProcessChart.propTypes = {};
+
+export default memo(ProcessChart);
