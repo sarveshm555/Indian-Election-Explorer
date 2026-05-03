@@ -83,7 +83,7 @@ npm run dev
 ---
 
 ## 🏆 Built For
-PromptWars Week 2 — Build with AI 2026
+PromptWars Challenge 2 — Build with AI 2026
 Developer: @sarveshm555
 
 #BuildwithVibe #BuildwithAI #PromptWars #GoogleAntigravity #IndianElections
