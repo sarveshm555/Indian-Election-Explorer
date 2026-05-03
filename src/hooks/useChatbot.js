@@ -4,7 +4,18 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 /**
  * Custom hook to manage chatbot messages and Gemini API interactions.
  * 
- * @returns {Object} Chatbot state and handler functions.
+ * This hook handles:
+ * - Message state management (history).
+ * - Input sanitization and validation.
+ * - Rate limiting (anti-spam protection).
+ * - Direct integration with Google Generative AI (Gemini 2.5 Flash).
+ * - Safety settings and granular error handling.
+ * 
+ * @hook
+ * @returns {Object} chatbotState - The state and handlers for the chatbot.
+ * @returns {Array} chatbotState.messages - The conversation history.
+ * @returns {boolean} chatbotState.isLoading - Whether the AI is currently generating a response.
+ * @returns {Function} chatbotState.sendMessage - Function to send a user message to the AI.
  */
 export const useChatbot = () => {
   const [messages, setMessages] = useState([
@@ -90,7 +101,7 @@ If the user asks about anything else, politely decline and steer them back to el
     } catch (error) {
       let errorMessage = 'An unexpected error occurred. Please try again.';
       if (error.message === 'API_KEY_MISSING') {
-        errorMessage = 'Gemini API Key is missing. Please check your configuration.';
+        errorMessage = 'I am having trouble connecting to my brain right now. Please ensure the Gemini API key is properly configured in the environment settings.';
       } else if (error.message?.includes('429')) {
         errorMessage = 'Rate limit exceeded. Please wait a moment.';
       } else if (error.message?.includes('safety')) {

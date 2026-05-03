@@ -4,9 +4,16 @@ import { useElectionData } from '../hooks/useElectionData';
 
 /**
  * Flashcards Component
- * Displays a grid of interactive flashcards for key election terms.
  * 
- * @returns {React.ReactElement} The Flashcards component.
+ * Displays a grid of interactive flashcards for key election terms (ECI, EVM, etc.).
+ * Features:
+ * - 3D flip animation using CSS transitions.
+ * - Screen-reader only text to announce flipped content.
+ * - Keyboard navigation (Space/Enter to flip).
+ * - Memoized to prevent re-renders on sibling tab changes.
+ * 
+ * @component
+ * @returns {React.ReactElement} The rendered Flashcards section.
  */
 const Flashcards = () => {
   const { flashcards } = useElectionData();

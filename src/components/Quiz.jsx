@@ -5,9 +5,17 @@ import { useElectionData } from '../hooks/useElectionData';
 
 /**
  * Quiz Component
- * A gamified quiz to test election knowledge with confetti and streaks.
  * 
- * @returns {React.ReactElement} The Quiz component.
+ * An interactive, gamified assessment to test users' knowledge of Indian elections.
+ * Features:
+ * - Dynamic question rendering from centralized data.
+ * - Score tracking and "correct answer" streaks.
+ * - Confetti celebrations (standard for streaks, massive for perfect scores).
+ * - Immediate feedback with detailed explanations.
+ * - Accessibility: ARIA roles for forms, alerts, and live regions.
+ * 
+ * @component
+ * @returns {React.ReactElement} The rendered Quiz section.
  */
 const Quiz = () => {
   const { quiz: quizData } = useElectionData();

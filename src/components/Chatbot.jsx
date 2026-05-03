@@ -4,9 +4,17 @@ import { useChatbot } from '../hooks/useChatbot';
 
 /**
  * Chatbot Component
- * A floating AI assistant powered by Gemini for answering election-related queries.
  * 
- * @returns {React.ReactElement} The Chatbot component.
+ * A floating AI assistant interface that interacts with the Gemini API.
+ * Features:
+ * - Floating action button (FAB) to toggle the chat window.
+ * - Auto-scrolling to the latest message.
+ * - Integration with `useChatbot` hook for core AI logic.
+ * - Accessibility: ARIA roles for dialogs, messages, and input.
+ * - Responsive layout for mobile devices.
+ * 
+ * @component
+ * @returns {React.ReactElement} The rendered floating Chatbot widget.
  */
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);

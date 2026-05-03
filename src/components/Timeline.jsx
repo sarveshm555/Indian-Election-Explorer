@@ -4,9 +4,16 @@ import { useElectionData } from '../hooks/useElectionData';
 
 /**
  * Timeline Component
- * Displays an interactive vertical timeline of the election process.
  * 
- * @returns {React.ReactElement} The Timeline component.
+ * Displays an interactive vertical timeline of the Indian election process.
+ * Features:
+ * - Interactive expansion of steps to show detailed activities.
+ * - Keyboard accessibility (Space/Enter to toggle).
+ * - ARIA live regions for dynamic content updates.
+ * - Memoized performance to prevent re-renders when other tabs change.
+ * 
+ * @component
+ * @returns {React.ReactElement} The rendered Timeline section.
  */
 const Timeline = () => {
   const { timeline } = useElectionData();

@@ -10,7 +10,15 @@ const Chatbot = lazy(() => import('./components/Chatbot'));
 
 /**
  * Main Application Component
- * Handles navigation and layout for the Indian Election Explorer.
+ * 
+ * This is the root component of the Indian Election Explorer. It manages:
+ * - Tab-based navigation state.
+ * - Global error handling via ErrorBoundary.
+ * - Lazy loading and code splitting for heavy components.
+ * - Accessibility features like Skip Links and ARIA tab roles.
+ * 
+ * @component
+ * @returns {React.ReactElement} The rendered application shell.
  */
 function App() {
   const [activeTab, setActiveTab] = useState('timeline');

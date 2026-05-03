@@ -86,9 +86,17 @@ CustomTooltip.propTypes = {
 
 /**
  * ProcessChart Component
- * Visualizes the duration of different election phases using a bar chart.
  * 
- * @returns {React.ReactElement} The ProcessChart component.
+ * A visual data representation component using Recharts.
+ * It displays the typical duration of different phases of the Indian election process.
+ * Features:
+ * - Responsive SVG bar chart.
+ * - Interactive tooltips with detailed phase descriptions.
+ * - Visual highlighting of the active bar on hover.
+ * - Accessible SVG elements with ARIA labels and roles.
+ * 
+ * @component
+ * @returns {React.ReactElement} The rendered ProcessChart section.
  */
 const ProcessChart = () => {
   const [activeIndex, setActiveIndex] = useState(null);
